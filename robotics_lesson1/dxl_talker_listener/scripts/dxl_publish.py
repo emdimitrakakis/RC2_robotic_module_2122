@@ -7,7 +7,7 @@ def dxl_talker():
     pub = rospy.Publisher('motor_value', Int32, queue_size=10)
     rospy.init_node('dxl_talker', anonymous=True)
     
-    rate = rospy.Rate(0.5) # 10hz
+    rate = rospy.Rate(0.4) # 10hz
     
     m_value = 100
 

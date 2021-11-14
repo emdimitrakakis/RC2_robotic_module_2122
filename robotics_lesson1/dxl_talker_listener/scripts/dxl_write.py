@@ -41,7 +41,7 @@ TORQUE_ENABLE               = 1                 # Value for enabling the torque
 TORQUE_DISABLE              = 0                 # Value for disabling the torque
 DXL_MINIMUM_POSITION_VALUE  = 2000           # Dynamixel will rotate between this value
 DXL_MAXIMUM_POSITION_VALUE  = 3000            # and this value (note that the Dynamixel would not move when the position value is out of movable range. Check e-manual about the range of the Dynamixel you use.)
-DXL_MOVING_STATUS_THRESHOLD = 5                # Dynamixel moving status threshold
+DXL_MOVING_STATUS_THRESHOLD = 10                # Dynamixel moving status threshold
 
 # Initialize PortHandler instance
 # Set the port path
@@ -101,7 +101,7 @@ def dxl_write(sub_motor_value):
 
         #print("[ID:%d] GoalPos:%d  PresPos:%d" % (DXL_ID, sub_motor_value, dxl_present_position))
         if not abs(sub_motor_value - dxl_present_position) > DXL_MOVING_STATUS_THRESHOLD:
-            rospy.loginfo("GoalPos is %03d: and PresPos is: %03d", sub_motor_value, dxl_present_position)
+            rospy.loginfo("GoalPos is %03d: and PresPos is: %03d.", sub_motor_value, dxl_present_position)
             break
 
 def dxl_torque_disable():
