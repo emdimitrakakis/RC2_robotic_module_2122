@@ -11,7 +11,7 @@ def dxl_talker():
 
     while not rospy.is_shutdown():
 
-        m_value = input("Enter motor PWM value (enter -1 to terminate):")
+        m_value = int(input("Enter motor PWM value (enter -1 to terminate):"))
 
         if m_value == -1:
             break;
